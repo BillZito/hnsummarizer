@@ -1,0 +1,24 @@
+{
+  "name": "hackernews",
+  "version": "1.0.0",
+  "description": "Summarizer for hackernews articles",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "author": "Bill Zito",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "file-system": "^2.2.1",
+    "http": "0.0.0",
+    "node-libcurl": "^1.0.0",
+    "node-summary": "^1.1.0",
+    "node-tldr": "^0.4.14",
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1"
+  }
+}
