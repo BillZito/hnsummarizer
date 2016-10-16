@@ -3,7 +3,10 @@ Hello, it's the face behind the bot :). I wrote an automatic summarizer to provi
 ***********************************
 List of methods and what they do: 
 
-1. Getting URLS
+
+
+Getting URLS:
+
 getTopList: calls Firebase api to get the list of the top posts
 
 getOne: gets the best story at the given index and appends its title and url to the posts.txt file
@@ -11,7 +14,8 @@ getOne: gets the best story at the given index and appends its title and url to 
 getAllList: recursively calls getOne once the previous async call
 has been called, to retrieve the urls from all the top posts
 
-2. Summarizing Content
+Summarizing Content:
+
 summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpages
 
 parseText: Given index of one website, summarize its contents and add them to file
@@ -19,7 +23,10 @@ parseText: Given index of one website, summarize its contents and add them to fi
 parseAll goes from lower (incl.) to higher range (excl), recursively parsing the 
 next file once the previous one returns
 
-3. Example of how it works: 
+
+
+Example of how it works: 
+
 getTopList(); //Gets the top posts 
 
 getOne(20); // Gets the 20th item's title and url in the list
@@ -30,7 +37,12 @@ parseText(77); //Gets the 77th item in the list
 
 parseAll(85, 88); //Recursively gets the 85th, 86th, and 87th
 
-4. Next steps: 
+
+
+Next steps: 
+
 Improve quality of summaries 
+
 Store content in database
+
 Automate and connect the pieces
