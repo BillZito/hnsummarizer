@@ -1,4 +1,17 @@
 /*
+// summPromise("http://www.bitmatica.com/blog/an-open-source-self-hosted-heroku/")
+// .then(result => {
+// 	console.log('title', result.title);
+// 	console.log('summary', result.summary.join("\n"));
+// })
+// .catch( fail => {
+// 	console.log('err', fail);
+// });
+
+*/
+
+
+/*
 Old parser
 var parseText = function(numb) {
 	var titleUrlObj;

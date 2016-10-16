@@ -4,39 +4,60 @@ var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('file-system'));
 var cheerio = require('cheerio');
 var Summary = require('node-tldr');
-// var express = require('express');
-// var app = express();
 
 var posts = [];
 var _dir = '/Users/billzito/Documents/HR/week5/hackernews/pages/';
 
 /*
+getTopList calls HR api to get the list of the top posts
+*/
+
+var getTopList = function() {
+		return rp('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
+
+		.then( (body) => {
+			return fs.writeFileAsync('topPosts.txt', body);
+		})
+
+		.then( () => {
+			console.log('successfully got top list');
+			return 'success';
+		})
+
+		.catch( (err) => {
+			console.log('error getting top', err);
+		});
+};
+
+/*
 getOne gets the best story at the given index and appends its title and url to the posts.txt file
 */
-var getOne = function(numb) {
+var getOne = function(numb, id) {
 
-	return rp('https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty')
+	return fs.readFileAsync('topPosts.txt', 'utf8')
 		
 		.then( (body) => {
 			var topArr = JSON.parse(body);
-			return rp('https://hacker-news.firebaseio.com/v0/item/' + topArr[numb] + '.json');
+			var toSearch = id || topArr[numb];
+			return rp('https://hacker-news.firebaseio.com/v0/item/' + toSearch + '.json');
 		})
 
 		.then( (html) => {
 			var text = JSON.parse(html);
 			if (text.url) {
-				posts.push(JSON.stringify({'title': text.title, 'url': text.url}));
+				var curr = JSON.stringify({'title': text.title, 'url': text.url});
+				console.log('curr now', curr);
+				return curr;
 			}
-			console.log('posts now', posts);
-			return posts;
 		})
 
-		.then((posts) => {
-			return fs.appendFile('posts.txt', posts[0] + '\n');
+		.then((post) => {
+			return fs.appendFile('posts.txt', post + '\n');
 		})
 
 		.then(() => {
 			console.log('successfully appended');
+
 		})
 
 		.catch( (err) => {
@@ -44,8 +65,26 @@ var getOne = function(numb) {
 		});
 };
 
+/*
+getAllList recursively calls getOne once the previous async call
+has been called, to retrieve the urls from all the top posts
+*/
+var getAllList = function(curr, end) {
+	if (curr === end) {
+		return 'successfully got all messages';
+	} else {
+		getOne(curr)
 
+		.then(() => {
+			return getAllList(curr + 1, end);
+		})
 
+		.catch( (err) => {
+			console.log('failed to get a message', err);
+			return;
+		});
+	}
+};
 
 /*
 Use node-tldr summarizer to scrape/summarizer the content of webpages
@@ -83,6 +122,7 @@ var parseText = function(numb) {
 
 	.then(() => {
 		console.log('successfully wrote content');
+		return 'success';
 	})
 
 	.catch( (err) => {
@@ -90,17 +130,31 @@ var parseText = function(numb) {
 	});
 };
 
+/*
+parseAll goes from lower (incl.) to higher range (excl), recursively parsing the 
+next file once the previous one returns
+*/
 
-// summPromise("http://www.bitmatica.com/blog/an-open-source-self-hosted-heroku/")
-// .then(result => {
-// 	console.log('title', result.title);
-// 	console.log('summary', result.summary.join("\n"));
-// })
-// .catch( fail => {
-// 	console.log('err', fail);
-// });
+var parseAll = function(curr, end) {
+	if (curr === end) {
+		console.log('found the end');
+		return;
+	} else {
+		parseText(curr)
 
-var n = 50;
-getOne(n + 2);
-parseText(n);
-// summarizeText(_dir + '5.txt');
+		.then( () => {
+			return parseAll(curr + 1, end);
+		})
+
+		.catch( (err) => {
+			console.log('err parsing all', err);
+			return;
+		});
+	}
+};
+
+// parseAll(85, 87);
+
+// getOne(20, 12719333);
+// parseText(77);
+// getAllList(20, 30);

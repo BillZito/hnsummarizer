@@ -50,3 +50,38 @@ undefined
 {"title":"Project delays: why good software estimates are impossible (2015)","url":"http://chrismm.com/blog/project-delays-why-software-estimates/?"}
 {"title":"Sanic – Python 3.5+ web server that's written to go fast","url":"https://github.com/channelcat/sanic"}
 {"title":"Keras.js – Run trained Keras models in your browser","url":"https://github.com/transcranial/keras-js"}
+{"title":"Programming books you might want to consider reading","url":"http://danluu.com/programming-books/"}
+{"title":"Orbit – Distributed, serverless, peer-to-peer chat application on IPFS","url":"https://github.com/haadcode/orbit"}
+{"title":"Caddy – HTTP/2 Web Server with Automatic HTTPS","url":"https://caddyserver.com/"}
+{"title":"Numerai – A hedge fund built by a global community of anonymous data scientists","url":"https://numer.ai/"}
+{"title":"Elm and Phoenix/Elixir in Production for France TV","url":"http://vincent.jousse.org/en/tech/elm-phoenix-elixir-production/"}
+{"title":"The Birkana hexadecimal number symbols","url":"http://yawar.blogspot.com/2016/10/the-birkana-hexadecimal-number-symbols.html"}
+{"title":"Shoptiques (NYC, W'12) Is Hiring Senior Software Engineer","url":"http://www.shoptiques.com/careers/jobs?id=sse"}
+{"title":"What should go into JSX 2.0?","url":"https://github.com/facebook/jsx/issues/65"}
+{"title":"SubmitHub: how a solo founder built a $46k/mo SaaS business in 10 months","url":"https://www.indiehackers.com/businesses/submithub"}
+{"title":"Run Kubernetes on a Mac with Kube Solo","url":"https://deis.com/blog/2016/run-kubernetes-on-a-mac-with-kube-solo/"}
+{"title":"Schaeuble Seeks Decision on EU Financial Transaction Tax in 2016","url":"http://www.bloomberg.com/news/articles/2016-10-11/schaeuble-seeks-decision-on-eu-financial-transaction-tax-in-2016"}
+{"title":"Peter Higgs: I wouldn't be productive enough for today's academic system (2013)","url":"https://www.theguardian.com/science/2013/dec/06/peter-higgs-boson-academic-system"}
+{"title":"How to Destroy the Myth of the Proper Solution","url":"https://hackernoon.com/how-to-destroy-the-myth-of-the-proper-solution-94ca958def1f"}
+{"title":"DyNet – Dynamic neural network library","url":"https://github.com/clab/dynet"}
+{"title":"Who Pays for the Decentralized Web?","url":"https://tierion.com/blog/who-pays-for-the-decentralized-web/"}
+{"title":"Honeypot Turing Test","url":"http://adversarial.ai/blog/honeypot"}
+{"title":"Why the Vast Majority of Women in India Will Never Own a Smartphone","url":"http://www.wsj.com/articles/why-the-vast-majority-of-women-in-india-will-never-own-a-smartphone-1476351001"}
+{"title":"Electrons in Graphene Behave Like Light, Only Better","url":"http://engineering.columbia.edu/news/james-hone-electrons-graphene"}
+{"title":"Build and ship native GUI apps on Python with Beeware [audio]","url":"https://talkpython.fm/episodes/show/79/beeware-python-tools"}
+{"title":"Amy Goodman Is Facing Prison for Reporting on the Dakota Access Pipeline","url":"https://www.thenation.com/article/amy-goodman-is-facing-prison-for-reporting-on-the-dakota-access-pipeline-that-should-scare-us-all/"}
+{"title":"Netflix hammers cross-border watchers and there may be no way out","url":"http://www.cbc.ca/news/business/netflix-border-hopping-television-1.3805525"}
+{"title":"Harvard and M.I.T. Are Sued Over Lack of Closed Captions","url":"http://www.nytimes.com/2015/02/13/education/harvard-and-mit-sued-over-failing-to-caption-online-courses.html"}
+{"title":"Modern Software Over-Engineering Mistakes","url":"https://medium.com/@rdsubhas/10-modern-software-engineering-mistakes-bc67fbef4fc8#.txrola3hf"}
+{"title":"What Neanderthals' healthy teeth tell us about their minds","url":"http://www.bbc.com/earth/story/20160419-what-neanderthals-teeth-tell-us-about-their-minds"}
+{"title":"Pokemon Go, Security, and Obsolescence","url":"https://community.rapid7.com/community/metasploit/blog/2016/10/11/pokemon-go-security-and-obsolescence"}
+----------------
+{"title":"Twain and Stowe Homes Being Renovated for Historical Accuracy","url":"http://www.nytimes.com/2016/10/14/arts/design/twain-and-stowe-homes-being-renovated-for-historical-accuracy.html?_r=0"}
+{"title":"Venezuela’s Supreme Court Consolidates President Nicolás Maduro’s Power","url":"http://www.nytimes.com/2016/10/13/world/americas/venezuela-nicolas-maduro.html"}
+{"title":"FlexJS: MXML and ActionScript to run natively in the browser without Flash","url":"https://cwiki.apache.org/confluence/display/FLEX/FlexJS"}
+{"title":"A Netflix for Film Geeks?","url":"http://www.wsj.com/articles/a-netflix-for-film-geeks-1476395406?mod=e2tw"}
+{"title":"Optical Mouse Teardown: a look at the sensor","url":"https://electronupdate.blogspot.com/2016/10/optical-mouse-teardown-look-at-sensor.html"}
+{"title":"Feds Walk into a Building. Demand Everyone's Fingerprints to Open Phones","url":"http://www.forbes.com/sites/thomasbrewster/2016/10/16/doj-demands-mass-fingerprint-seizure-to-open-iphones"}
+{"title":"How to Destroy the Myth of the Proper Solution","url":"https://hackernoon.com/how-to-destroy-the-myth-of-the-proper-solution-94ca958def1f"}
+{"title":"Ex-Googler had to shut down his London startup after struggling to raise funding","url":"http://www.businessinsider.com/sup-shuts-down-rich-pleeth-interview-2016-10"}
+{"title":"Amy Goodman Is Facing Prison for Reporting on the Dakota Access Pipeline","url":"https://www.thenation.com/article/amy-goodman-is-facing-prison-for-reporting-on-the-dakota-access-pipeline-that-should-scare-us-all/"}
