@@ -16,7 +16,13 @@ getTopList calls HR api to get the list of the top posts
 */
 
 app.get('/', function(req, res){
-	res.send('sup');
+	parseText(63)
+	.then( (suc)=> {
+		res.status(200).send(suc);
+	})
+	.catch( (err) => {
+		res.status(404).send('sad');
+	});
 });
 
 
@@ -42,7 +48,7 @@ var getTopList = function() {
 };
 
 /*
-getOne gets the best story at the given index and appends its title and url to the posts.txt file
+getOne gets the story at the given index and appends its title and url to the posts.txt file
 */
 var getOne = function(numb, id) {
 
@@ -69,6 +75,7 @@ var getOne = function(numb, id) {
 
 		.then(() => {
 			console.log('successfully appended');
+			return 'success';
 
 		})
 
