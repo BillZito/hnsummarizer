@@ -1,0 +1,87 @@
+"https://www.briangilham.com/blog/2016/10/10/be-kind/"
+"http://www.maslowcnc.com/"
+"http://www.gwan.com/blog/20160405.html/"
+{"title":"The Nobel Prize in Literature 2016 awarded to Bob Dylan","url":"http://www.nobelprize.org/nobel_prizes/literature/laureates/2016/press.html"}
+{"title":"Taking PHP Seriously","url":"https://slack.engineering/taking-php-seriously-cf7a60065329#.v643zvbw3"}
+{"title":"An Open Source, Self-Hosted Heroku","url":"http://www.bitmatica.com/blog/an-open-source-self-hosted-heroku/"}
+{"title":"A Man Who Stood Up To Facebook","url":"http://www.npr.org/sections/alltechconsidered/2016/10/13/497820170/the-man-who-stood-up-to-facebook"}
+{"title":"It’s Been Real, Android: Why I’m Retiring from Android","url":"https://raptureinvenice.com/its-been-real-android-why-im-retiring-from-android/"}
+{"title":"Static types in Python","url":"http://blog.zulip.org/2016/10/13/static-types-in-python-oh-mypy/"}
+{"title":"Maslow CNC","url":"http://www.maslowcnc.com"}
+{"title":"Intel will add deep-learning instructions to its processors","url":"http://lemire.me/blog/2016/10/14/intel-will-add-deep-learning-instructions-to-its-processors/"}
+{"title":"PHP 7 deployment at Dailymotion","url":"http://engineering.dailymotion.com/php-7-deployment-at-dailymotion/"}
+{"title":"Facebook Has Repeatedly Trended Fake News Since Firing Its Human Editors","url":"https://www.washingtonpost.com/news/the-intersect/wp/2016/10/12/facebook-has-repeatedly-trended-fake-news-since-firing-its-human-editors/?tid=sm_fb"}
+{"title":"Becoming a CTO","url":"https://juokaz.com/blog/becoming-a-cto"}
+{"title":"Wells Fargo CEO John Stumpf Steps Down","url":"http://www.wsj.com/articles/wells-fargo-ceo-stumpf-to-retire-1476306019"}
+{"title":"GitLab reinstates list of servers that have malware","url":"https://about.gitlab.com/2016/10/15/gitlab-reinstates-list-of-servers-that-have-malware/"}
+{"title":"What $50 buys you at the Huaqiangbei electronics market in Shenzhen, China","url":"https://medium.com/@keyboardio/what-50-buys-you-at-huaqiangbei-the-worlds-most-fascinating-electronics-market-f0384d9fca32"}
+{"title":"Canonical releases Ubuntu 16.10","url":"http://insights.ubuntu.com/2016/10/13/canonical-releases-ubuntu-16-10/"}
+{"title":"Be Kind","url":"https://www.briangilham.com/blog/2016/10/10/be-kind"}
+{"title":"Google's “Director of Engineering” Hiring Test","url":"http://www.gwan.com/blog/20160405.html"}
+{"title":"Books Programmers Don't Really Read (2008)","url":"http://www.billthelizard.com/2008/12/books-programmers-dont-really-read.html"}
+{"title":"A single byte write opened a root execution exploit","url":"https://daniel.haxx.se/blog/2016/10/14/a-single-byte-write-opened-a-root-execution-exploit/"}
+{"title":"Copyright Law Shouldn't Punish Research and Repair","url":"https://act.eff.org/action/copyright-law-shouldn-t-punish-research-and-repair"}
+{"title":"Google Reveals It Received Secret FBI Subpoena","url":"https://theintercept.com/2016/10/14/freed-from-gag-order-google-reveals-it-received-secret-fbi-subpoena/"}
+{"title":"What has happened down here is the winds have changed","url":"http://andrewgelman.com/2016/09/21/what-has-happened-down-here-is-the-winds-have-changed/"}
+{"title":"Decades-Old Mystery Put to Rest: Why Are There X's in the Desert?","url":"http://www.npr.org/2016/10/11/496567104/decades-old-mystery-put-to-rest-why-are-there-xs-in-the-desert?utm_source=facebook.com&utm_medium=social&utm_campaign=npr&utm_term=nprnews&utm_content=2037"}
+{"title":"Flynn: open source PaaS","url":"https://flynn.io/"}
+{"title":"KDE Project releases KDE 1","url":"http://www.heliocastro.info/?p=291"}
+{"title":"Cooled Nikon D5500a Chills the Sensor for Clearer Star Photos","url":"http://petapixel.com/2016/10/11/cooled-nikon-d5500a-chills-sensor-clearer-star-photos/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%25253A+PetaPixel+%252528PetaPixel%252529"}
+{"title":"Walmart Paid Its People More to Get Cleaner Stores and Higher Sales","url":"http://www.nytimes.com/2016/10/16/upshot/how-did-walmart-get-cleaner-stores-and-higher-sales-it-paid-its-people-more.html"}
+{"title":"Differentiable Neural Computers","url":"https://deepmind.com/blog/differentiable-neural-computers/"}
+{"title":"Easy Amazon EC2 Instance Comparison","url":"http://www.ec2instances.info/"}
+undefined
+{"title":"Hyperloop One Raises $50M, Hires Former Uber CFO","url":"http://www.bloomberg.com/news/articles/2016-10-13/hyperloop-one-raises-50-million-hires-former-uber-cfo"}
+{"title":"Robot Can Do More Push-Ups Because It Sweats","url":"http://spectrum.ieee.org/automaton/robotics/humanoids/this-robot-can-do-more-pushups-because-it-sweats"}
+{"title":"How One 19-Year-Old Illinois Man Is Distorting National Polling Averages","url":"http://www.nytimes.com/2016/10/13/upshot/how-one-19-year-old-illinois-man-is-distorting-national-polling-averages.html?smid=tw-upshotnyt&smtyp=cur&_r=0"}
+{"title":"GitHub censored my research data","url":"https://gwillem.gitlab.io/2016/10/14/github-censored-research-data/"}
+{"title":"Noms – A versioned, forkable, syncable database","url":"https://github.com/attic-labs/noms.git"}
+{"title":"Twitter bot is tracking dictators' flights in and out of Geneva","url":"http://www.theverge.com/2016/10/13/13243072/twitter-bot-tracks-dictator-planes-geneva-gva-tracker?href="}
+{"title":"What were Einstein and Gödel talking about? (2005)","url":"http://www.newyorker.com/magazine/2005/02/28/time-bandits-2"}
+{"title":"Hubble Finds 10 Times More Galaxies Than Thought","url":"http://www.nasa.gov/feature/goddard/2016/hubble-reveals-observable-universe-contains-10-times-more-galaxies-than-previously-thought/"}
+{"title":"The DEA is withdrawing a proposal to ban another plant citing public outcry","url":"https://www.washingtonpost.com/news/wonk/wp/2016/10/12/the-dea-is-reversing-its-insane-decision-to-ban-the-opiate-like-plant-kratom-for-now/?0p19G=c"}
+{"title":"A Study of 4chan’s Politically Incorrect Forum and its Effect on the Web","url":"https://arxiv.org/abs/1610.03452"}
+{"title":"Pastry Chefs Are in Demand, Why Aren’t Wages Rising?","url":"http://mobile.nytimes.com/2016/10/14/business/economy/pastry-workers-restaurant-job-training.html?em_pos=small&emc=edit_dk_20161013&nl=dealbook&nl_art=1&nlid=65508833&ref=headline&te=1&referer="}
+{"title":"OpenBSD vmm enabled","url":"http://undeadly.org/cgi?action=article&mode=expanded&sid=20161012092516"}
+{"title":"KiCad: A commitment to freedom","url":"https://giving.web.cern.ch/content/kicad-development-1"}
+{"title":"How to speed up the Rust compiler","url":"https://blog.mozilla.org/nnethercote/2016/10/14/how-to-speed-up-the-rust-compiler/"}
+{"title":"Leonard Cohen Makes It Darker","url":"http://www.newyorker.com/magazine/2016/10/17/leonard-cohen-makes-it-darker"}
+{"title":"Carbon Nanotubes Finally Outperform Silicon in Transistors","url":"http://www.allaboutcircuits.com/news/end-of-mosfets-carbon-nanotubes-finally-outperform-silicon-in-transistors/"}
+{"title":"Project delays: why good software estimates are impossible (2015)","url":"http://chrismm.com/blog/project-delays-why-software-estimates/?"}
+{"title":"Sanic – Python 3.5+ web server that's written to go fast","url":"https://github.com/channelcat/sanic"}
+{"title":"Keras.js – Run trained Keras models in your browser","url":"https://github.com/transcranial/keras-js"}
+{"title":"Programming books you might want to consider reading","url":"http://danluu.com/programming-books/"}
+{"title":"Orbit – Distributed, serverless, peer-to-peer chat application on IPFS","url":"https://github.com/haadcode/orbit"}
+{"title":"Caddy – HTTP/2 Web Server with Automatic HTTPS","url":"https://caddyserver.com/"}
+{"title":"Numerai – A hedge fund built by a global community of anonymous data scientists","url":"https://numer.ai/"}
+{"title":"Elm and Phoenix/Elixir in Production for France TV","url":"http://vincent.jousse.org/en/tech/elm-phoenix-elixir-production/"}
+{"title":"The Birkana hexadecimal number symbols","url":"http://yawar.blogspot.com/2016/10/the-birkana-hexadecimal-number-symbols.html"}
+{"title":"Shoptiques (NYC, W'12) Is Hiring Senior Software Engineer","url":"http://www.shoptiques.com/careers/jobs?id=sse"}
+{"title":"What should go into JSX 2.0?","url":"https://github.com/facebook/jsx/issues/65"}
+{"title":"SubmitHub: how a solo founder built a $46k/mo SaaS business in 10 months","url":"https://www.indiehackers.com/businesses/submithub"}
+{"title":"Run Kubernetes on a Mac with Kube Solo","url":"https://deis.com/blog/2016/run-kubernetes-on-a-mac-with-kube-solo/"}
+{"title":"Schaeuble Seeks Decision on EU Financial Transaction Tax in 2016","url":"http://www.bloomberg.com/news/articles/2016-10-11/schaeuble-seeks-decision-on-eu-financial-transaction-tax-in-2016"}
+{"title":"Peter Higgs: I wouldn't be productive enough for today's academic system (2013)","url":"https://www.theguardian.com/science/2013/dec/06/peter-higgs-boson-academic-system"}
+{"title":"How to Destroy the Myth of the Proper Solution","url":"https://hackernoon.com/how-to-destroy-the-myth-of-the-proper-solution-94ca958def1f"}
+{"title":"DyNet – Dynamic neural network library","url":"https://github.com/clab/dynet"}
+{"title":"Who Pays for the Decentralized Web?","url":"https://tierion.com/blog/who-pays-for-the-decentralized-web/"}
+{"title":"Honeypot Turing Test","url":"http://adversarial.ai/blog/honeypot"}
+{"title":"Why the Vast Majority of Women in India Will Never Own a Smartphone","url":"http://www.wsj.com/articles/why-the-vast-majority-of-women-in-india-will-never-own-a-smartphone-1476351001"}
+{"title":"Electrons in Graphene Behave Like Light, Only Better","url":"http://engineering.columbia.edu/news/james-hone-electrons-graphene"}
+{"title":"Build and ship native GUI apps on Python with Beeware [audio]","url":"https://talkpython.fm/episodes/show/79/beeware-python-tools"}
+{"title":"Amy Goodman Is Facing Prison for Reporting on the Dakota Access Pipeline","url":"https://www.thenation.com/article/amy-goodman-is-facing-prison-for-reporting-on-the-dakota-access-pipeline-that-should-scare-us-all/"}
+{"title":"Netflix hammers cross-border watchers and there may be no way out","url":"http://www.cbc.ca/news/business/netflix-border-hopping-television-1.3805525"}
+{"title":"Harvard and M.I.T. Are Sued Over Lack of Closed Captions","url":"http://www.nytimes.com/2015/02/13/education/harvard-and-mit-sued-over-failing-to-caption-online-courses.html"}
+{"title":"Modern Software Over-Engineering Mistakes","url":"https://medium.com/@rdsubhas/10-modern-software-engineering-mistakes-bc67fbef4fc8#.txrola3hf"}
+{"title":"What Neanderthals' healthy teeth tell us about their minds","url":"http://www.bbc.com/earth/story/20160419-what-neanderthals-teeth-tell-us-about-their-minds"}
+{"title":"Pokemon Go, Security, and Obsolescence","url":"https://community.rapid7.com/community/metasploit/blog/2016/10/11/pokemon-go-security-and-obsolescence"}
+----------------
+{"title":"Twain and Stowe Homes Being Renovated for Historical Accuracy","url":"http://www.nytimes.com/2016/10/14/arts/design/twain-and-stowe-homes-being-renovated-for-historical-accuracy.html?_r=0"}
+{"title":"Venezuela’s Supreme Court Consolidates President Nicolás Maduro’s Power","url":"http://www.nytimes.com/2016/10/13/world/americas/venezuela-nicolas-maduro.html"}
+{"title":"FlexJS: MXML and ActionScript to run natively in the browser without Flash","url":"https://cwiki.apache.org/confluence/display/FLEX/FlexJS"}
+{"title":"A Netflix for Film Geeks?","url":"http://www.wsj.com/articles/a-netflix-for-film-geeks-1476395406?mod=e2tw"}
+{"title":"Optical Mouse Teardown: a look at the sensor","url":"https://electronupdate.blogspot.com/2016/10/optical-mouse-teardown-look-at-sensor.html"}
+{"title":"Feds Walk into a Building. Demand Everyone's Fingerprints to Open Phones","url":"http://www.forbes.com/sites/thomasbrewster/2016/10/16/doj-demands-mass-fingerprint-seizure-to-open-iphones"}
+{"title":"How to Destroy the Myth of the Proper Solution","url":"https://hackernoon.com/how-to-destroy-the-myth-of-the-proper-solution-94ca958def1f"}
+{"title":"Ex-Googler had to shut down his London startup after struggling to raise funding","url":"http://www.businessinsider.com/sup-shuts-down-rich-pleeth-interview-2016-10"}
+{"title":"Amy Goodman Is Facing Prison for Reporting on the Dakota Access Pipeline","url":"https://www.thenation.com/article/amy-goodman-is-facing-prison-for-reporting-on-the-dakota-access-pipeline-that-should-scare-us-all/"}
