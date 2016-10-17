@@ -4,6 +4,8 @@ var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('file-system'));
 var cheerio = require('cheerio');
 var Summary = require('node-tldr');
+var express = require('express');
+var app = express();
 
 var posts = [];
 var _dir = '/Users/billzito/Documents/HR/week5/hackernews/pages/';
@@ -11,6 +13,14 @@ var _dir = '/Users/billzito/Documents/HR/week5/hackernews/pages/';
 /*
 getTopList calls HR api to get the list of the top posts
 */
+
+app.get('/', function(req, res){
+	res.send('sup');
+});
+
+app.listen(3000, function(){
+	console.log('listening on port 3000');
+});
 
 var getTopList = function() {
 		return rp('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')

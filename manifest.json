@@ -3,6 +3,10 @@
 	"name": "HN Preview",
 	"short_name": "HN previewer to help you pick meaningful links",
 	"version": "1.0.1",
+	"permissions": [
+		"webRequest", 
+		"https://hacker-news.firebaseio.com/*"
+	],
 	"content_scripts": [
 		{
 			"matches": [
@@ -12,10 +16,10 @@
 		}
 	],
 	"browser_action": {
-		"default_icon": "icon16.png"
+		"default_icon": "pics/icon16.png"
 	},
-	"icons": {"48": "icon128.png",
-			  "128": "icon128.png"},
+	"icons": {"48": "pics/icon128.png",
+			  "128": "pics/icon128.png"},
 	"background": {
 		"scripts": ["background.js"]
 	}

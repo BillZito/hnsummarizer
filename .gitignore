@@ -1,7 +1,5 @@
-pages/*
 node_modules/*
-topPosts.txt
-posts.txt
-helpers.js
-icon*
-screenshot.png
+pages/*
+urls/*
+helpers/*
+pics/*
