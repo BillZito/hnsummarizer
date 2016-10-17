@@ -1,7 +1,7 @@
 {
-  "name": "hackernews",
+  "name": "hackernews previewer",
   "version": "1.0.0",
-  "description": "Summarizer for hackernews articles",
+  "description": "Hackernews article previewer",
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
@@ -15,6 +15,7 @@
     "express": "^4.14.0",
     "file-system": "^2.2.1",
     "http": "0.0.0",
+    "jquery": "^3.1.1",
     "node-libcurl": "^1.0.0",
     "node-summary": "^1.1.0",
     "node-tldr": "^0.4.14",

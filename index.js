@@ -87,7 +87,7 @@ var getAllList = function(curr, end) {
 };
 
 /*
-Use node-tldr summarizer to scrape/summarizer the content of webpages
+summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpages
 */
 var summPromise = function(url) {
 	return new Promise( (resolve, reject) => {
@@ -103,7 +103,7 @@ var summPromise = function(url) {
 
 
 /*
-Given index of one website, summarize its contents and add them to file
+parseText: Given index of one website, summarize its contents and add them to file
 */
 var parseText = function(numb) {
 	var titleUrlObj;
@@ -154,7 +154,6 @@ var parseAll = function(curr, end) {
 };
 
 // parseAll(85, 87);
-
 // getOne(20, 12719333);
 // parseText(77);
 // getAllList(20, 30);
