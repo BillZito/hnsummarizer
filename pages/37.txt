@@ -1,0 +1,1 @@
+We are fairly confident in the core data format, and plan to support Noms database version 7 and forward.

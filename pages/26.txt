@@ -1,0 +1,1 @@
+Flynn is a simple, turnkey solution to cloud, containers, ops, whatever you want to call it.,Service discovery, scheduling, containers, routing, and cluster management are all taken care of in the background.

@@ -1,0 +1,1 @@
+I think it is probably only worth doing as a batch when the accumulated amount of changes makes it worth while. We have accumulated a number of these nice-to-haves breaking changes that would be nice to incorporate.  However, at this point JSX is a hugely adopted syntax in all kinds of tooling.

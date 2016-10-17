@@ -1,0 +1,1 @@
+If you come across problems, it would help greatly to open issues so that we can fix them as quickly as possible.,I would be happy to accept PRs! If you want to work on something, it'd be good to talk beforehand to make sure nobody else is working on it.

@@ -1,0 +1,1 @@
+Use Caddy as a local dev server or use it to serve your site in production.

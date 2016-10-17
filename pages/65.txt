@@ -1,0 +1,1 @@
+It is designed to be efficient when run on either CPU or GPU, and works well with networks that have dynamic structures that change for every training instance.
