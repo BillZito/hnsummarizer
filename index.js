@@ -9,7 +9,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 var posts = [];
-var _dir = '/Users/billzito/Documents/HR/week5/hackernews/pages/';
+// var _dir = '/Users/billzito/Documents/HR/week5/hackernews/pages/';
 
 /*
 getTopList calls HR api to get the list of the top posts
@@ -138,7 +138,7 @@ var parseText = function(numb) {
 
 	.then((result) => {
 		summ = result.summary;
-		return fs.writeFileAsync(_dir + numb + '.txt', summ);
+		return fs.writeFileAsync('pages/' + numb + '.txt', summ);
 	})
 
 	.then(() => {
