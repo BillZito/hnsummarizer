@@ -1,5 +1,5 @@
-pages/*
 node_modules/*
-topPosts.txt
-posts.txt
-helpers.js
+pages/*
+urls/*
+helpers/*
+pics/*

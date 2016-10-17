@@ -4,6 +4,9 @@ var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('file-system'));
 var cheerio = require('cheerio');
 var Summary = require('node-tldr');
+var express = require('express');
+var app = express();
+app.set('port', (process.env.PORT || 5000));
 
 var posts = [];
 var _dir = '/Users/billzito/Documents/HR/week5/hackernews/pages/';
@@ -11,6 +14,15 @@ var _dir = '/Users/billzito/Documents/HR/week5/hackernews/pages/';
 /*
 getTopList calls HR api to get the list of the top posts
 */
+
+app.get('/', function(req, res){
+	res.send('sup');
+});
+
+
+app.listen(app.get('port'), function(){
+	console.log('listening on port', app.get('port'));
+});
 
 var getTopList = function() {
 		return rp('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
@@ -87,7 +99,7 @@ var getAllList = function(curr, end) {
 };
 
 /*
-Use node-tldr summarizer to scrape/summarizer the content of webpages
+summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpages
 */
 var summPromise = function(url) {
 	return new Promise( (resolve, reject) => {
@@ -103,7 +115,7 @@ var summPromise = function(url) {
 
 
 /*
-Given index of one website, summarize its contents and add them to file
+parseText: Given index of one website, summarize its contents and add them to file
 */
 var parseText = function(numb) {
 	var titleUrlObj;
@@ -154,7 +166,6 @@ var parseAll = function(curr, end) {
 };
 
 // parseAll(85, 87);
-
 // getOne(20, 12719333);
 // parseText(77);
 // getAllList(20, 30);

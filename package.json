@@ -1,10 +1,12 @@
 {
   "name": "hackernews",
   "version": "1.0.0",
-  "description": "Summarizer for hackernews articles",
+  "description": "Hackernews article previewer",
   "main": "index.js",
+  "engines": {
+    "node": "4.5.0"
+  },
   "scripts": {
-    "test": "node index.js",
     "start": "node index.js"
   },
   "author": "Bill Zito",
@@ -15,10 +17,15 @@
     "express": "^4.14.0",
     "file-system": "^2.2.1",
     "http": "0.0.0",
+    "jquery": "^3.1.1",
     "node-libcurl": "^1.0.0",
     "node-summary": "^1.1.0",
     "node-tldr": "^0.4.14",
     "request": "^2.75.0",
     "request-promise": "^4.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BillZito/hnsummarizer"
   }
 }
