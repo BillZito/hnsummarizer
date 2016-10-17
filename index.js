@@ -17,8 +17,8 @@ getTopList calls HR api to get the list of the top posts
 
 app.get('/', function(req, res){
 	parseText(63)
-	.then( (suc)=> {
-		res.status(200).send(suc);
+	.then( (summ)=> {
+		res.status(200).send(summ);
 	})
 	.catch( (err) => {
 		res.status(404).send('sad');
@@ -34,7 +34,7 @@ var getTopList = function() {
 		return rp('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
 
 		.then( (body) => {
-			return fs.writeFileAsync('topPosts.txt', body);
+			return fs.writeFileAsync('urls/topPosts.txt', body);
 		})
 
 		.then( () => {
@@ -52,7 +52,7 @@ getOne gets the story at the given index and appends its title and url to the po
 */
 var getOne = function(numb, id) {
 
-	return fs.readFileAsync('topPosts.txt', 'utf8')
+	return fs.readFileAsync('urls/topPosts.txt', 'utf8')
 		
 		.then( (body) => {
 			var topArr = JSON.parse(body);
@@ -70,7 +70,7 @@ var getOne = function(numb, id) {
 		})
 
 		.then((post) => {
-			return fs.appendFile('posts.txt', post + '\n');
+			return fs.appendFile('urls/posts.txt', post + '\n');
 		})
 
 		.then(() => {
@@ -127,7 +127,8 @@ parseText: Given index of one website, summarize its contents and add them to fi
 var parseText = function(numb) {
 	var titleUrlObj;
 	var currAttempt;
-	return fs.readFileAsync('posts.txt', 'utf8')
+	var summ = "";
+	return fs.readFileAsync('urls/posts.txt', 'utf8')
 	
 	.then((content) => {
 		var contentArr = content.split('\n');
@@ -136,12 +137,13 @@ var parseText = function(numb) {
 	})
 
 	.then((result) => {
-		return fs.writeFileAsync(_dir + numb + '.txt', result.summary);
+		summ = result.summary;
+		return fs.writeFileAsync(_dir + numb + '.txt', summ);
 	})
 
 	.then(() => {
 		console.log('successfully wrote content');
-		return 'success';
+		return summ;
 	})
 
 	.catch( (err) => {
