@@ -94,13 +94,25 @@ exports.parseText = function(storyObj) {
 	return exports.summPromise(storyObj.url)
 
 	.then((result) => {
-		// summ = result.summary;
-		storyObj.summary = result.summary.join(' ');
+		var summ = result.summary.join(' ');
+
+		if (!(summ.length > 20)) {
+			summ = "looks like we need to improve our algorithm...";
+		}
+
+		if (summ.length > 500) {
+			summ = summ.slice(0, 501);
+		}
+
+		storyObj.summary = summ;
+		// console.log('summary is', storyObj.summary);
 		return storyObj;
 	})
 
 	.catch( (err) => {
 		console.log('err parsing', err);
+		storyObj.summary = "looks like we need to improve our algorithm...";
+		return storyObj;
 	});
 };
 
@@ -134,7 +146,7 @@ exports.getSummary = function(id) {
 		return exports.parseText(unsummedStory);
 	})
 	.then( (finalObj) => {
-		console.log('summarized story', finalObj);
+		// console.log('summarized story', finalObj);
 		return finalObj;
 	})
 	.catch( (err) => {

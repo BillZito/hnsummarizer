@@ -1,8 +1,9 @@
 //content.js
 
 $('.athing').each(function(i, item){
+	var id = item.id;
 	$.ajax({
-			url: "https://murmuring-citadel-29703.herokuapp.com/",
+			url: "https://murmuring-citadel-29703.herokuapp.com/" + id,
 			type: "GET", 
 			contentType: "application/json",
 			success: function(data) {

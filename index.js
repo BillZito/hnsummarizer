@@ -9,6 +9,10 @@ var utils = require('./utils');
 
 // var url;
 // start server and deal with incoming requests
+app.get('/', function(req, res) {
+	res.status(200).send('how are you today?');
+});
+
 app.get('/*', function(req, res){
 	storyId = req.url.replace('/', '');
 	return config.Post.find({id: storyId})
@@ -16,8 +20,8 @@ app.get('/*', function(req, res){
 	.then( (data) => {
 		if (data.length > 0) {
 			// console.log('and the summ is', data[0].summary);
-			res.status(200).send(data[0]);
-			config.db.close();
+			res.status(200).send(data[0].summary);
+			// config.db.close();
 			return 'first success';
 		} else {
 			return utils.getSummary(Number(storyId))
@@ -29,15 +33,15 @@ app.get('/*', function(req, res){
 			.then((dbPost)=> {
 				// console.log('hopefully post made', dbPost);
 				res.status(200).send(dbPost.summary);
-				config.db.close();
+				// config.db.close();
 				return 'second success';
 			})
 		}
 	})
 
-	.then( (successMsg) => {
-		console.log('sucMsg: ', successMsg);
-	})
+	// .then( (successMsg) => {
+	// 	// console.log('sucMsg: ', successMsg);
+	// })
 
 	.catch( (err) => {
 		console.log('post already exists', err);
