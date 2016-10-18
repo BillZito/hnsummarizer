@@ -1,7 +1,7 @@
 {
-  "name": "hackernews",
+  "name": "hackernews_previewer",
   "version": "1.0.0",
-  "description": "Hackernews article previewer",
+  "description": "See what articles are about before clicking them",
   "main": "index.js",
   "engines": {
     "node": "4.5.0"

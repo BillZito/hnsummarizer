@@ -1,4 +1,4 @@
-//content.js
+//content.js -- chrome extension
 
 $('.athing').each(function(i, item){
 	var id = item.id;
@@ -6,12 +6,11 @@ $('.athing').each(function(i, item){
 			url: "https://murmuring-citadel-29703.herokuapp.com/" + id,
 			type: "GET", 
 			contentType: "application/json",
-			success: function(data) {
+			success: function(summary) {
 				// console.log('made a call');
-				var summary = data;
 				// console.log(summary);
-				var test = '<tr class="subtext"><td colspan="2"></td><td>' + summary + '</td></tr>';
-				$('.itemList > tbody > tr').eq(i*4).after(test);
+				var content = '<tr class="subtext"><td colspan="2"></td><td>' + summary + '</td></tr>';
+				$('#' + id).after(content);
 				console.log(i, 'success');
 			},
 			error: function(err) {
