@@ -1,6 +1,7 @@
 #hn-summarizer#
 
 ##Contents##
+
 */chrome: chrome extension
 
 */helpers/utils.js: get and summarize articles
@@ -12,6 +13,7 @@
 
 ###About:###
  A chrome extension to provide context to HN articles by showing previews of articles underneath their links. 
+ Download the extension: https://chrome.google.com/webstore/detail/hn-previewer/mndggbidneldegheeglhmplgocjkmlcl?hl=en
 
 
 ###More:###
