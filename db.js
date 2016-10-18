@@ -1,4 +1,5 @@
-// currently allow duplicate ids, such fix that
+// start db and define schema
+// currently allow duplicate ids, should fix that
 
 // mongodb and mongoose orm
 var mongoose = require('mongoose');

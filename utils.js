@@ -1,3 +1,6 @@
+// utils handles the summarization process by requesting urls from 
+// firebase api and summarizing via an npm module
+
 //request for getting posts, summary for summarizing
 var Summary = require('node-tldr');
 var request = require('request');
@@ -100,8 +103,8 @@ exports.parseText = function(storyObj) {
 			summ = "looks like we need to improve our algorithm...";
 		}
 
-		if (summ.length > 500) {
-			summ = summ.slice(0, 501);
+		if (summ.length > 200) {
+			summ = summ.slice(0, 201);
 		}
 
 		storyObj.summary = summ;

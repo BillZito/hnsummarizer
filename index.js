@@ -1,3 +1,5 @@
+// index.js handles requests to server, responding with correct summary
+
 // express for routing
 var express = require('express');
 var app = express();
@@ -14,7 +16,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/*', function(req, res) {
-	console.log('the url is', req.url);
+	// console.log('the url is', req.url);
 	storyId = req.url.replace('/', '');
 	return config.Post.find({id: storyId})
 
@@ -23,22 +25,21 @@ app.get('/*', function(req, res) {
 			// console.log('and the summ is', data[0].summary);
 			res.status(200).send(data[0].summary);
 			// config.db.close();
-			console.log('post found success');
 			return 'first success';
 		} else {
 			return utils.getSummary(Number(storyId))
+			
 			.then( (postObj)=> {
+				res.status(200).send(postObj.summary);
 				var newPost = config.Post(postObj);
-				console.log('new post success');
 				return newPost.save();
 			})
 
 			.then((dbPost)=> {
-				console.log('hopefully post made', dbPost);
-				res.status(200).send(dbPost.summary);
 				// config.db.close();
 				return 'second success';
 			})
+
 			.catch( (err) => {
 				console.log('error adding new item', err);
 			});
