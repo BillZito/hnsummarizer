@@ -100,11 +100,11 @@ exports.parseText = function(storyObj) {
 		var summ = result.summary.join(' ');
 
 		if (!(summ.length > 20)) {
-			summ = "looks like we need to improve our algorithm...";
+			summ = "[No preview available]--But you should click the link!";
 		}
 
-		if (summ.length > 200) {
-			summ = summ.slice(0, 201);
+		if (summ.length > 300) {
+			summ = summ.slice(0, 301) + "...";
 		}
 
 		storyObj.summary = summ;
@@ -114,7 +114,7 @@ exports.parseText = function(storyObj) {
 
 	.catch( (err) => {
 		console.log('err parsing', err);
-		storyObj.summary = "looks like we need to improve our algorithm...";
+		storyObj.summary = "[No preview available]--But you should click the link!";
 		return storyObj;
 	});
 };

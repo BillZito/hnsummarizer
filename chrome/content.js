@@ -7,7 +7,7 @@ $('.athing').each(function(i, item){
 			type: "GET", 
 			contentType: "application/json",
 			success: function(summary) {
-				var content = '<tr class="subtext"><td colspan="2"></td><td>' + summary + '</td></tr>';
+				var content = '<tr class="spacer" style="height:5px"></tr><tr><td colspan="2"></td><td class="mything">' + summary + '</td></tr><tr class="spacer" style="height:5px"></tr>';
 				$('#' + id).after(content);
 				// console.log(i, 'success');
 			},
