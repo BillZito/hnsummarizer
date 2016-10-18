@@ -7,7 +7,7 @@ $('.athing').each(function(i, item){
 			contentType: "application/json",
 			success: function(data) {
 				// console.log('made a call');
-				var summary = data[0];
+				var summary = data;
 				// console.log(summary);
 				var test = '<tr class="subtext"><td colspan="2"></td><td>' + summary + '</td></tr>';
 				$('.itemList > tbody > tr').eq(i*4).after(test);
