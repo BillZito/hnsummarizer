@@ -22,7 +22,7 @@ app.get('/*', function(req, res) {
 
 	.then( (data) => {
 		if (data.length > 0) {
-			console.log('and the first summ is', data[0].summary);
+			// console.log('and the first summ is', data[0].summary);
 			res.status(200).send(data[0].summary);
 			// config.db.close();
 			return 'first success';
@@ -30,13 +30,13 @@ app.get('/*', function(req, res) {
 			return utils.getSummary(Number(storyId))
 			
 			.then( (postObj)=> {
+				res.status(200).send(postObj.summary);
 				var newPost = config.Post(postObj);
 				return newPost.save();
 			})
 
 			.then((dbPost)=> {
-				console.log('and the second summ is', dbPost.summary);
-				res.status(200).send(dbPost.summary);
+				// console.log('and the second summ is', dbPost.summary);
 				// config.db.close();
 				return 'second success';
 			})
