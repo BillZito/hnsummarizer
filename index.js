@@ -30,13 +30,13 @@ app.get('/*', function(req, res) {
 			return utils.getSummary(Number(storyId))
 			
 			.then( (postObj)=> {
-				res.status(200).send(postObj.summary);
 				var newPost = config.Post(postObj);
 				return newPost.save();
 			})
 
 			.then((dbPost)=> {
 				// console.log('and the second summ is', dbPost.summary);
+				res.status(200).send(dbPost.summary);
 				// config.db.close();
 				return 'second success';
 			})
