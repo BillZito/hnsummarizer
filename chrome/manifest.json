@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "HN Preview",
+	"name": "HN Previewer",
 	"short_name": "HN previewer to help you pick meaningful links",
 	"version": "1.0.1",
 	"permissions": [
@@ -12,15 +12,12 @@
 			"matches": [
 				"<all_urls>", "file://*"
 			],
-			"js": ["node_modules/jquery/dist/jquery.js", "content.js"]
+			"js": ["jquery.min.js", "content.js"]
 		}
 	],
 	"browser_action": {
 		"default_icon": "pics/icon16.png"
 	},
 	"icons": {"48": "pics/icon128.png",
-			  "128": "pics/icon128.png"},
-	"background": {
-		"scripts": ["background.js"]
-	}
+			  "128": "pics/icon128.png"}
 }

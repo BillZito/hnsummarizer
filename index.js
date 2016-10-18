@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/*', function(req, res) {
-	console.log('the url is', req.url);
+	// console.log('the url is', req.url);
 	storyId = req.url.replace('/', '');
 	return config.Post.find({id: storyId})
 
@@ -28,16 +28,18 @@ app.get('/*', function(req, res) {
 			return 'first success';
 		} else {
 			return utils.getSummary(Number(storyId))
+			
 			.then( (postObj)=> {
+				res.status(200).send(postObj.summary);
 				var newPost = config.Post(postObj);
 				return newPost.save();
 			})
 
 			.then((dbPost)=> {
-				res.status(200).send(dbPost.summary);
 				// config.db.close();
 				return 'second success';
 			})
+
 			.catch( (err) => {
 				console.log('error adding new item', err);
 			});
