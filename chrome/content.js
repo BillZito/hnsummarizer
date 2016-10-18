@@ -7,10 +7,9 @@ $('.athing').each(function(i, item){
 			type: "GET", 
 			contentType: "application/json",
 			success: function(summary) {
-				var content = '<tr class="spacer" style="height:5px"></tr><tr><td colspan="2"></td><td class="mything">' 
-				+ summary + '</td></tr><tr class="spacer" style="height:5px"></tr>';
+				var content = '<tr class="spacer" style="height:5px"></tr><tr><td colspan="2"></td><td class="mything">' + summary + '</td></tr><tr class="spacer" style="height:5px"></tr>';
 				$('#' + id).after(content);
-				console.log(i, summary.slice(0, 30));
+				// console.log(i, summary.slice(0, 30));
 			},
 			error: function(err) {
 				console.log('found an err', err);
