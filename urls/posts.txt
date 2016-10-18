@@ -85,3 +85,14 @@ undefined
 {"title":"How to Destroy the Myth of the Proper Solution","url":"https://hackernoon.com/how-to-destroy-the-myth-of-the-proper-solution-94ca958def1f"}
 {"title":"Ex-Googler had to shut down his London startup after struggling to raise funding","url":"http://www.businessinsider.com/sup-shuts-down-rich-pleeth-interview-2016-10"}
 {"title":"Amy Goodman Is Facing Prison for Reporting on the Dakota Access Pipeline","url":"https://www.thenation.com/article/amy-goodman-is-facing-prison-for-reporting-on-the-dakota-access-pipeline-that-should-scare-us-all/"}
+{"title":"Amy Goodman Is Facing Prison for Reporting on the Dakota Access Pipeline","url":"https://www.thenation.com/article/amy-goodman-is-facing-prison-for-reporting-on-the-dakota-access-pipeline-that-should-scare-us-all/"}
+{"title":"Netflix hammers cross-border watchers and there may be no way out","url":"http://www.cbc.ca/news/business/netflix-border-hopping-television-1.3805525"}
+{"title":"Harvard and M.I.T. Are Sued Over Lack of Closed Captions","url":"http://www.nytimes.com/2015/02/13/education/harvard-and-mit-sued-over-failing-to-caption-online-courses.html"}
+{"title":"Modern Software Over-Engineering Mistakes","url":"https://medium.com/@rdsubhas/10-modern-software-engineering-mistakes-bc67fbef4fc8#.txrola3hf"}
+{"title":"What Neanderthals' healthy teeth tell us about their minds","url":"http://www.bbc.com/earth/story/20160419-what-neanderthals-teeth-tell-us-about-their-minds"}
+{"title":"Pokemon Go, Security, and Obsolescence","url":"https://community.rapid7.com/community/metasploit/blog/2016/10/11/pokemon-go-security-and-obsolescence"}
+undefined
+{"title":"Twain and Stowe Homes Being Renovated for Historical Accuracy","url":"http://www.nytimes.com/2016/10/14/arts/design/twain-and-stowe-homes-being-renovated-for-historical-accuracy.html?_r=0"}
+{"title":"Venezuela’s Supreme Court Consolidates President Nicolás Maduro’s Power","url":"http://www.nytimes.com/2016/10/13/world/americas/venezuela-nicolas-maduro.html"}
+{"title":"FlexJS: MXML and ActionScript to run natively in the browser without Flash","url":"https://cwiki.apache.org/confluence/display/FLEX/FlexJS"}
+{"title":"A Netflix for Film Geeks?","url":"http://www.wsj.com/articles/a-netflix-for-film-geeks-1476395406?mod=e2tw"}
