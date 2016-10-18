@@ -3,7 +3,7 @@
 // mongodb and mongoose orm
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect(process.env.MONGOLAB_URI, function(err) {
+mongoose.connect(process.env.MONGODB_URI, function(err) {
 	if (err) {
 		console.log('error connecting', err);
 	}
