@@ -120,7 +120,7 @@ exports.getAllList = function(topItems, curr, end) {
 
 		.catch( (err) => {
 			console.log('failed to get a message', err);
-			return;
+			return exports.getAllList(topItems, curr + 1, end);
 		});
 	}
 };
