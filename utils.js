@@ -40,6 +40,7 @@ exports.getOne = function(id) {
 
 	.then( (html) => {
 		var text = JSON.parse(html);
+		console.log('html', html);
 		var storyObj = {title: text.title, url: text.url, by: text.by, id: text.id, time: text.time};
 		return storyObj;
 	})
@@ -77,11 +78,14 @@ has been called, to retrieve the urls from all the top posts
 summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpages
 */
 exports.summPromise = function(url) {
+	console.log('summpromise called');
 	return new Promise( (resolve, reject) => {
 		Summary.summarize(url, function(res, err) {
 			if (err) {
+				console.log('error getting the url', err);
 				reject(err);
 			} else {
+				console.log('succesffuly got the url', res);
 				resolve(res);
 			}
 		});
@@ -97,6 +101,7 @@ exports.parseText = function(storyObj) {
 	return exports.summPromise(storyObj.url)
 
 	.then((result) => {
+		console.log('returned a result from summary module', result.summary);
 		var summ = result.summary.join(' ');
 
 		if (!(summ.length > 20)) {
@@ -146,10 +151,11 @@ next file once the previous one returns
 exports.getSummary = function(id) {
 	return exports.getOne(id)
 	.then( (unsummedStory) => {
+		console.log('got id from server');
 		return exports.parseText(unsummedStory);
 	})
 	.then( (finalObj) => {
-		// console.log('summarized story', finalObj);
+		console.log('summarized story', finalObj);
 		return finalObj;
 	})
 	.catch( (err) => {
@@ -159,9 +165,23 @@ exports.getSummary = function(id) {
 };
 
 // examples of how methods are used
-// exports.getSummary(12719333);
+// exports.getSummary(12731914);
 
+var testReq = function(id) {
+	return exports.getOne(id)
+	.then( (unsummedStory) => {
+		console.log('id returned', unsummedStory);
+		return rp(unsummedStory.url);
+	})
+	.then( (res) => {
+		console.log('got a res', res);
+	})
+	.catch( (err) => {
+		console.log('youll get it', err);
+	});
+};
 
+testReq(12731914);
 // these need to be refactored before they are used
 // exports.parseAll(85, 87);
 // exports.getAllList(20, 30);

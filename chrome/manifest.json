@@ -2,12 +2,12 @@
 	"manifest_version": 2,
 	"name": "HN Previewer",
 	"short_name": "HN previewer to help you pick meaningful links",
-	"version": "1.0.4",
-	"permissions": [],
+	"version": "1.0.6",
+	"permissions": ["webRequest", "https://murmuring-citadel-29703.herokuapp.com/*"],
 	"content_scripts": [
 		{
 			"matches": [
-				"https://news.ycombinator.com/news*", "https://news.ycombinator.com/best*", "https://news.ycombinator.com/newest*", "file://*"
+				"https://news.ycombinator.com/news*", "https://news.ycombinator.com/", "https://news.ycombinator.com/best*", "https://news.ycombinator.com/newest*", "file://*"
 			],
 			"css": ["mystyles.css"],
 			"js": ["jquery.min.js", "content.js"]
@@ -17,5 +17,8 @@
 		"default_icon": "pics/icon16.png"
 	},
 	"icons": {"48": "pics/icon128.png",
-			  "128": "pics/icon128.png"}
+			  "128": "pics/icon128.png"},
+	"background": {
+		"scripts": ["background.js"]
+	}
 }

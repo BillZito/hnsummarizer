@@ -1,0 +1,28 @@
+12737906 request works (li items)
+12737328 request works (lots of links/ no paragraphs)
+12736014 request returns gibberish because it's a pdf image
+12735896 request works, weird > format http://mail.openjdk.java.net/pipermail/jdk9-dev/2016-October/005092.html
+12734888 request works, google format weird https://groups.google.com/forum/#!topic/mozilla.dev.version-control/nh4fITFlEMk
+12734568 request works, weird format of page https://www.seeedstudio.com/new-fusion-pcb.html
+12736642 request works but gibberish (moving man) http://chinedufn.github.io/collada-dae-parser/
+12734405 request works but github links https://github.com/quozd/awesome-dotnet
+***12734334 request works, where is content? http://www.wsj.com/articles/google-pixel-review-the-android-iphone-youve-been-waiting-for-1476795541
+12729493 http://disney.github.io/ no paragraphs
+12732473 http://www.doudoulinux.org/web/english/index.html this one should work, only little weird format
+12731914 this should work too (just short) http://eprint.iacr.org/2016/989
+12734043
+12736732
+12725850
+12738473
+12736684
+12738044
+12732592
+12732692
+12733891 n
+12733867 n
+12730723 n
+
+no response
+12739564 -- has summary --timed out? --works on refresh
+12739582 -- no summary --timed out? --works on refresh
+12733811 -- has summary ---timed out? --works on refresh

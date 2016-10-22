@@ -1,5 +1,14 @@
 //content.js -- chrome extension
 
+// if we want todo something with message from background
+// chrome.runtime.onMessage.addListener(
+//   function(request, sender, sendResponse) {
+//     if( request.message === "clicked_browser_action" ) {
+//       sendResponse();
+//     }
+//   }
+// );
+
 $('.athing').each(function(i, item){
 	var id = item.id;
 	$.ajax({
@@ -9,10 +18,13 @@ $('.athing').each(function(i, item){
 			success: function(summary) {
 				var content = '<tr class="spacer" style="height:5px"></tr><tr><td colspan="2"></td><td class="mything">' + summary + '</td></tr><tr class="spacer" style="height:5px"></tr>';
 				$('#' + id).after(content);
-				// console.log(i, summary.slice(0, 30));
+				// console.log(id, summary.slice(0, 10));
 			},
 			error: function(err) {
-				console.log('found an err', err);
+				var content = '<tr class="spacer" style="height:5px"></tr><tr><td colspan="2"></td><td class="mything">[No preview available]--But you should click the link!</td></tr><tr class="spacer" style="height:5px"></tr>';
+				$('#' + id).after(content);
+				// console.log(id, summary.slice(0, 10));
+				// console.log('found an err', err);
 			}
 	});
 	
