@@ -7,9 +7,29 @@ var request = require('request');
 var rp = require('request-promise');
 var Promise = require('bluebird');
 
+// var mongoose = require('mongoose');
+var dbController = require('./db.js');
+// var connectingPort = process.env.MONGODB_URI || 'mongodb://localhost/test';
+
+// mongoose.connection.on('open', function() {
+// 	console.log('mongoose opened');
+// });
+
+// mongoose.connection.on('disconnected', function() {
+// 	console.log('mongoose disconnected');
+// });
+
+// mongoose.connect(connectingPort, function(err) {
+// 	if (err) {
+// 		console.log('error connecting', err);
+// 	}
+// });
+
 //fs write to files, cheerio parse html content 
 var fs = Promise.promisifyAll(require('file-system'));
 var cheerio = require('cheerio');
+
+var topList = [];
 
 /*
 getTopList calls HR api to get the list of the top posts
@@ -18,12 +38,8 @@ exports.getTopList = function() {
 		return rp('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
 
 		.then( (body) => {
-			return fs.writeFileAsync('urls/topPosts.txt', body);
-		})
-
-		.then( () => {
-			console.log('successfully got top list');
-			return 'success';
+			topList = JSON.parse(body);
+			return topList;
 		})
 
 		.catch( (err) => {
@@ -40,7 +56,7 @@ exports.getOne = function(id) {
 
 	.then( (html) => {
 		var text = JSON.parse(html);
-		console.log('html', html);
+		// console.log('html', html);
 		var storyObj = {title: text.title, url: text.url, by: text.by, id: text.id, time: text.time};
 		return storyObj;
 	})
@@ -50,42 +66,77 @@ exports.getOne = function(id) {
 	});
 };
 
-/*
 
+/*
+getAll first gets the top list, then it iterates through the top 100,
+saving them to db if they aren't already there 
+and getting summaries of each so that users will have preloaded summaries
+*/
+
+exports.getAll = function(start, end) {
+	
+	return exports.getTopList()
+
+	.then(function(topItems) {
+		return exports.getAllList(topItems, start, end);
+	})
+
+	.then(function(msg){
+		console.log('successfully ended', msg);
+		return "created new items";
+		// mongoose.disconnect();
+	})
+
+	.catch(function(err) {
+		console.log('error getting All', err);
+	});
+};
+
+// exports.getAll(5, 8);
+/*
 getAllList needs to be refactored to iterate through id's, not numbers in file
 
 getAllList recursively calls getOne once the previous async call
 has been called, to retrieve the urls from all the top posts
 */
-// exports.getAllList = function(curr, end) {
-// 	if (curr === end) {
-// 		return 'successfully got all messages';
-// 	} else {
-// 		exports.getOne(curr)
+exports.getAllList = function(topItems, curr, end) {
+	if (curr === end) {
+		return 'successfully got all messages';
+	} else {
+		return exports.getOne(topItems[curr])
 
-// 		.then(() => {
-// 			return exports.getAllList(curr + 1, end);
-// 		})
+		.then((currStory) => {
+			console.log('got one story', currStory.title);
+			return exports.parseText(currStory);
+		})
+		.then((fullStory) => {
+			// console.log('summary created', fullStory.summary);
+			return dbController.Post.create(fullStory);
+		})
+		.then((storyMade) => {
+			console.log('successfully created', storyMade.title);
+			return exports.getAllList(topItems, curr + 1, end);
+		})
 
-// 		.catch( (err) => {
-// 			console.log('failed to get a message', err);
-// 			return;
-// 		});
-// 	}
-// };
+		.catch( (err) => {
+			console.log('failed to get a message', err);
+			return;
+		});
+	}
+};
 
 /*
 summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpages
 */
 exports.summPromise = function(url) {
-	console.log('summpromise called');
+	// console.log('summpromise called');
 	return new Promise( (resolve, reject) => {
 		Summary.summarize(url, function(res, err) {
 			if (err) {
 				console.log('error getting the url', err);
 				reject(err);
 			} else {
-				console.log('succesffuly got the url', res);
+				// console.log('successfully got the url', res);
 				resolve(res);
 			}
 		});
@@ -101,15 +152,15 @@ exports.parseText = function(storyObj) {
 	return exports.summPromise(storyObj.url)
 
 	.then((result) => {
-		console.log('returned a result from summary module', result.summary);
+		// console.log('returned a result from summary module', result.summary);
 		var summ = result.summary.join(' ');
 
 		if (!(summ.length > 20)) {
 			summ = "[No preview available]--But you should click the link!";
 		}
 
-		if (summ.length > 300) {
-			summ = summ.slice(0, 301) + "...";
+		if (summ.length > 290) {
+			summ = summ.slice(0, 291) + "...";
 		}
 
 		storyObj.summary = summ;
@@ -167,21 +218,23 @@ exports.getSummary = function(id) {
 // examples of how methods are used
 // exports.getSummary(12731914);
 
-var testReq = function(id) {
-	return exports.getOne(id)
-	.then( (unsummedStory) => {
-		console.log('id returned', unsummedStory);
-		return rp(unsummedStory.url);
-	})
-	.then( (res) => {
-		console.log('got a res', res);
-	})
-	.catch( (err) => {
-		console.log('youll get it', err);
-	});
-};
+// A test to see what the actual contents of the webpage are
+// for those pages that don't work
+// var testRequestModule = function(id) {
+// 	return exports.getOne(id)
+// 	.then( (unsummedStory) => {
+// 		console.log('id returned', unsummedStory);
+// 		return rp(unsummedStory.url);
+// 	})
+// 	.then( (res) => {
+// 		console.log('got a res', res);
+// 	})
+// 	.catch( (err) => {
+// 		console.log('youll get it', err);
+// 	});
+// };
 
-testReq(12731914);
+// testRequestModule(12731914);
 // these need to be refactored before they are used
 // exports.parseAll(85, 87);
 // exports.getAllList(20, 30);

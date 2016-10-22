@@ -1,4 +1,4 @@
-console.log('something please');
+// console.log('something please');
 chrome.browserAction.onClicked.addListener(function(tab) {
   // Send a message to the active tab
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {

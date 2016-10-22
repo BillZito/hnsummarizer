@@ -4,13 +4,6 @@
 // mongodb and mongoose orm
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect(process.env.MONGODB_URI, function(err) {
-	if (err) {
-		console.log('error connecting', err);
-	}
-});
-
-var db = mongoose.connection;
 // db.dropDatabase();
 
 var Schema = mongoose.Schema;
@@ -61,6 +54,4 @@ exports.Post = mongoose.model('Post', postSchema);
 
 	
 // });
-
-exports.db = db;
 // console.log(exports);

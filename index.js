@@ -6,8 +6,25 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 var Promise = require('bluebird');
-var config = require('./db');
 var utils = require('./utils');
+
+var mongoose = require('mongoose');
+var dbController = require('./db.js');
+var connectingPort = process.env.MONGODB_URI || 'mongodb://localhost/test';
+
+mongoose.connection.on('open', function() {
+	console.log('mongoose opened');
+});
+
+mongoose.connection.on('disconnected', function() {
+	console.log('mongoose disconnected');
+});
+
+mongoose.connect(connectingPort, function(err) {
+	if (err) {
+		console.log('error connecting', err);
+	}
+});
 
 // var url;
 // start server and deal with incoming requests
@@ -18,26 +35,26 @@ app.get('/', function(req, res) {
 app.get('/*', function(req, res) {
 	// console.log('the url is', req.url);
 	storyId = req.url.replace('/', '');
-	return config.Post.find({id: storyId})
+	return dbController.Post.find({id: storyId})
 
 	.then( (data) => {
 		if (data.length > 0) {
 			// console.log('and the first summ is', data[0].summary);
 			res.status(200).send(data[0].summary);
-			// config.db.close();
+			// mongoose.disconnect();
 			return 'first success';
 		} else {
 			return utils.getSummary(Number(storyId))
 			
 			.then( (postObj)=> {
-				var newPost = config.Post(postObj);
+				var newPost = dbController.Post(postObj);
 				return newPost.save();
 			})
 
 			.then((dbPost)=> {
 				// console.log('and the second summ is', dbPost.summary);
 				res.status(200).send(dbPost.summary);
-				// config.db.close();
+				// mongoose.disconnect();
 				return 'second success';
 			})
 
