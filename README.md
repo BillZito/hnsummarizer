@@ -51,11 +51,17 @@ Calls Firebase API to get relevevant URL, uses node-sumuparticles to produce sum
 *parseAll goes from lower (incl.) to higher range (excl), recursively parsing the next file once the previous one returns
 
 
-###Next steps:
-*Create chrome extension
+###Latest improvements: 
+*Chrome extension now redirects to YC homepage on click
 
-*Improve quality of summaries 
+*DB updated every 10 min with homepage to minimize load time for user
 
-*Store content in database
 
-*Automate and connect the pieces
+###Next Tasks:
+*Fix timeouts of some requests
+
+*Add loading bar to show when summaries coming
+
+*Improve key terms for un-parseable texts
+
+*Look into mobile and safari

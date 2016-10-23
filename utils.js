@@ -1,39 +1,26 @@
 // utils handles the summarization process by requesting urls from 
 // firebase api and summarizing via an npm module
 
-//request for getting posts, summary for summarizing
 var Summary = require('node-tldr');
 var request = require('request');
 var rp = require('request-promise');
 var Promise = require('bluebird');
-// needs highly structured text
-// var nodeSumm = require('node-summary');
 var summarizer = require('summarize');
 var superagent = require('superagent');
-
-// superagent.get('https://www.youtube.com/watch?v=hyry8mgXiTk')
-// 	.end(function(err, res) {
-// 		console.log('res is', res);
-// 		console.log(summarizer(res.text));
-// 	});
+var promiseAgent = function(url) {
+	return new Promise( (resolve, reject) => {
+		superagent.get(url).end(function(err, res) {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(res);
+			}
+		});
+	});
+};
 
 var mongoose = require('mongoose');
 var dbController = require('./db.js');
-// var connectingPort = process.env.MONGODB_URI || 'mongodb://localhost/test';
-
-// mongoose.connection.on('open', function() {
-// 	console.log('mongoose opened');
-// });
-
-// mongoose.connection.on('disconnected', function() {
-// 	console.log('mongoose disconnected');
-// });
-
-// mongoose.connect(connectingPort, function(err) {
-// 	if (err) {
-// 		console.log('error connecting', err);
-// 	}
-// });
 
 //fs write to files, cheerio parse html content 
 var fs = Promise.promisifyAll(require('file-system'));
@@ -45,7 +32,7 @@ var topList = [];
 getTopList calls HR api to get the list of the top posts
 */
 exports.getTopList = function() {
-		return rp('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
+		return rp('https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty')
 
 		.then( (body) => {
 			topList = JSON.parse(body);
@@ -94,7 +81,6 @@ exports.getAll = function(start, end) {
 	.then(function(msg){
 		console.log('successfully ended', msg);
 		return "created new items";
-		// mongoose.disconnect();
 	})
 
 	.catch(function(err) {
@@ -127,7 +113,8 @@ exports.getAllList = function(topItems, curr, end) {
 					return exports.parseText(currStory);
 				})
 				.then((fullStory) => {
-					// console.log('summary created', fullStory.summary);
+					// miniPeek = fullStory.summary.slice(0, 10);
+					console.log('summary created', miniPeek);
 					return dbController.Post.create(fullStory);
 				})
 				.then((storyMade) => {
@@ -153,10 +140,7 @@ summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpag
 exports.summPromise = function(url) {
 	// console.log('summpromise called');
 	return new Promise( (resolve, reject) => {
-		Summary.summarize(url, function(res, err, third) {
-			// console.log('res', res);
-			// console.log('err', err);
-			// console.log('third', third);
+		Summary.summarize(url, function(res, err) {
 			if (err) {
 				console.log('error getting the url', err);
 				reject(err);
@@ -168,12 +152,14 @@ exports.summPromise = function(url) {
 	});
 };
 
-exports.summPromise('http://www.latimes.com/nation/la-na-national-guard-bonus-20161020-snap-story.html');
+// exports.summPromise('http://www.latimes.com/nation/la-na-national-guard-bonus-20161020-snap-story.html');
+
 /*
 parseText: Given object without summary, summarize its contents and return object with summary
 */
 exports.parseText = function(storyObj) {
 	// var summ = "";
+	story = storyObj;
 	return exports.summPromise(storyObj.url)
 
 	.then((result) => {
@@ -181,57 +167,64 @@ exports.parseText = function(storyObj) {
 		var summ = result.summary.join(' ');
 
 		if (!(summ.length > 20)) {
-			summ = "[No preview available]--But you should click the link!";
+			// console.log('its me shorty');
+
+			return promiseAgent(storyObj.url)
+
+			.then((res) => {
+				// console.log('superagent called')				
+				var summary = summarizer(res.text);
+
+				if (summary.topics.length > 0) {
+					var topTen = summary.topics.slice(0, 10);
+					summ = "Keywords: " + topTen.join(', ') + ". Words: " + summary.words + ". Est. minutes: " + summary.minutes + ".";
+
+				} else {
+					summ = "[No preview available]--But you should click the link!";
+				}
+
+				// console.log('after superagent fix, summary is', summ);
+				storyObj.summary = summ;
+				return storyObj;
+			})
+
+			.catch( (err) => {
+				console.log('error with promiseAgent', err);
+				summ = "[No preview available]--But you should click the link!";
+				storyObj.summary = summ;
+				return storyObj;
+			});
+
+		} else {
+
+			if (summ.length > 290) {
+				summ = summ.slice(0, 291) + "...";
+			}
+
+			storyObj.summary = summ;
+			// console.log('summary is', storyObj.summary);
+			return storyObj;
+			
 		}
 
-		if (summ.length > 290) {
-			summ = summ.slice(0, 291) + "...";
-		}
-
-		storyObj.summary = summ;
-		// console.log('summary is', storyObj.summary);
-		return storyObj;
 	})
 
 	.catch( (err) => {
 		console.log('err parsing', err);
+		// console.log('storyObj is', storyObj);
 		storyObj.summary = "[No preview available]--But you should click the link!";
 		return storyObj;
 	});
 };
 
-/*
-parseAll needs to be refactored to iterate through story objects
-
-parseAll goes from lower (incl.) to higher range (excl), recursively parsing the 
-next file once the previous one returns
-*/
-// exports.parseAll = function(curr, end) {
-// 	if (curr === end) {
-// 		console.log('found the end');
-// 		return;
-// 	} else {
-// 		exports.parseText(curr)
-
-// 		.then( () => {
-// 			return exports.parseAll(curr + 1, end);
-// 		})
-
-// 		.catch( (err) => {
-// 			console.log('err parsing all', err);
-// 			return;
-// 		});
-// 	}
-// };
-
 exports.getSummary = function(id) {
 	return exports.getOne(id)
 	.then( (unsummedStory) => {
-		console.log('got id from server');
+		// console.log('got id from server');
 		return exports.parseText(unsummedStory);
 	})
 	.then( (finalObj) => {
-		console.log('summarized story', finalObj);
+		//console.log('summarized story', finalObj);
 		return finalObj;
 	})
 	.catch( (err) => {
@@ -242,24 +235,3 @@ exports.getSummary = function(id) {
 
 // examples of how methods are used
 // exports.getSummary(12731914);
-
-// A test to see what the actual contents of the webpage are
-// for those pages that don't work
-// var testRequestModule = function(id) {
-// 	return exports.getOne(id)
-// 	.then( (unsummedStory) => {
-// 		console.log('id returned', unsummedStory);
-// 		return rp(unsummedStory.url);
-// 	})
-// 	.then( (res) => {
-// 		console.log('got a res', res);
-// 	})
-// 	.catch( (err) => {
-// 		console.log('youll get it', err);
-// 	});
-// };
-
-// testRequestModule(12731914);
-// these need to be refactored before they are used
-// exports.parseAll(85, 87);
-// exports.getAllList(20, 30);

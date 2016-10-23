@@ -18,19 +18,8 @@ mongoose.connect(connectingPort, function(err) {
 	}
 });
 
-// test that actually being created
-// dbController.Post.find({title: "Introducing Internatioalized Domain Name (IDN) Support"})
-// 	.then( (story) => {
-// 		console.log('story is', story);
-// 		mongoose.disconnect();
-// 	})
-// 	.catch( (err) => {
-// 		console.log('err getting story', err);
-// 	});
-
-
 // test that utils works
-utils.getAll(20, 50)
+utils.getAll(0, 50)
 .then((successMsg) => {
 	console.log('got all items');
 })
