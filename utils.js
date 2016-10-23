@@ -6,8 +6,18 @@ var Summary = require('node-tldr');
 var request = require('request');
 var rp = require('request-promise');
 var Promise = require('bluebird');
+// needs highly structured text
+// var nodeSumm = require('node-summary');
+var summarizer = require('summarize');
+var superagent = require('superagent');
 
-// var mongoose = require('mongoose');
+// superagent.get('https://www.youtube.com/watch?v=hyry8mgXiTk')
+// 	.end(function(err, res) {
+// 		console.log('res is', res);
+// 		console.log(summarizer(res.text));
+// 	});
+
+var mongoose = require('mongoose');
 var dbController = require('./db.js');
 // var connectingPort = process.env.MONGODB_URI || 'mongodb://localhost/test';
 
@@ -103,25 +113,37 @@ exports.getAllList = function(topItems, curr, end) {
 	if (curr === end) {
 		return 'successfully got all messages';
 	} else {
-		return exports.getOne(topItems[curr])
+		// console.log('curr message id is', topItems[curr]);
+		return dbController.Post.find({id: topItems[curr]})
+		.then( (data) => {
+			if (data.length > 0) {
+				console.log('already in db', topItems[curr]);
+				return exports.getAllList(topItems, curr + 1, end);
+			} else {
+				return exports.getOne(topItems[curr])
 
-		.then((currStory) => {
-			console.log('got one story', currStory.title);
-			return exports.parseText(currStory);
-		})
-		.then((fullStory) => {
-			// console.log('summary created', fullStory.summary);
-			return dbController.Post.create(fullStory);
-		})
-		.then((storyMade) => {
-			console.log('successfully created', storyMade.title);
-			return exports.getAllList(topItems, curr + 1, end);
-		})
+				.then((currStory) => {
+					console.log('got one story', currStory.title);
+					return exports.parseText(currStory);
+				})
+				.then((fullStory) => {
+					// console.log('summary created', fullStory.summary);
+					return dbController.Post.create(fullStory);
+				})
+				.then((storyMade) => {
+					console.log('successfully created', storyMade.title);
+					return exports.getAllList(topItems, curr + 1, end);
+				})
 
+				.catch( (err) => {
+					console.log('failed to get a message', err);
+					return exports.getAllList(topItems, curr + 1, end);
+				});
+			}
+		})
 		.catch( (err) => {
-			console.log('failed to get a message', err);
-			return exports.getAllList(topItems, curr + 1, end);
-		});
+			console.log('error getting from db', err);
+		})
 	}
 };
 
@@ -131,7 +153,10 @@ summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpag
 exports.summPromise = function(url) {
 	// console.log('summpromise called');
 	return new Promise( (resolve, reject) => {
-		Summary.summarize(url, function(res, err) {
+		Summary.summarize(url, function(res, err, third) {
+			// console.log('res', res);
+			// console.log('err', err);
+			// console.log('third', third);
 			if (err) {
 				console.log('error getting the url', err);
 				reject(err);
@@ -143,7 +168,7 @@ exports.summPromise = function(url) {
 	});
 };
 
-
+exports.summPromise('http://www.latimes.com/nation/la-na-national-guard-bonus-20161020-snap-story.html');
 /*
 parseText: Given object without summary, summarize its contents and return object with summary
 */

@@ -3,9 +3,9 @@
 12736014 request returns gibberish because it's a pdf image
 12735896 request works, weird > format http://mail.openjdk.java.net/pipermail/jdk9-dev/2016-October/005092.html
 12734888 request works, google format weird https://groups.google.com/forum/#!topic/mozilla.dev.version-control/nh4fITFlEMk
-12734568 request works, weird format of page https://www.seeedstudio.com/new-fusion-pcb.html
-12736642 request works but gibberish (moving man) http://chinedufn.github.io/collada-dae-parser/
-12734405 request works but github links https://github.com/quozd/awesome-dotnet
+12734568 request works, NO SUMMARY https://www.seeedstudio.com/new-fusion-pcb.html
+12736642 request works but NO SUMMARY http://chinedufn.github.io/collada-dae-parser/
+12734405 request works but NO SUMMARY https://github.com/quozd/awesome-dotnet
 ***12734334 request works, where is content? http://www.wsj.com/articles/google-pixel-review-the-android-iphone-youve-been-waiting-for-1476795541
 12729493 http://disney.github.io/ no paragraphs
 12732473 http://www.doudoulinux.org/web/english/index.html this one should work, only little weird format

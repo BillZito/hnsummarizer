@@ -2,3 +2,4 @@ node_modules/*
 helpers/*
 chrome/pics/*
 chrome_versions*
+nodetldr*

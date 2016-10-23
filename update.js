@@ -30,10 +30,9 @@ mongoose.connect(connectingPort, function(err) {
 
 
 // test that utils works
-utils.getAll(0, 50)
+utils.getAll(20, 50)
 .then((successMsg) => {
 	console.log('got all items');
-	mongoose.disconnect();
 })
 .catch((err) => {
 	console.log('there is an err', err);
