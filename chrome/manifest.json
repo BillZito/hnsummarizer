@@ -2,8 +2,8 @@
 	"manifest_version": 2,
 	"name": "HN Previewer",
 	"short_name": "HN previewer to help you pick meaningful links",
-	"version": "1.0.6",
-	"permissions": ["webRequest", "https://murmuring-citadel-29703.herokuapp.com/*"],
+	"version": "1.0.9",
+	"permissions": ["webRequest", "https://murmuring-citadel-29703.herokuapp.com/*", "tabs"],
 	"content_scripts": [
 		{
 			"matches": [
@@ -16,8 +16,7 @@
 	"browser_action": {
 		"default_icon": "pics/icon16.png"
 	},
-	"icons": {"48": "pics/icon128.png",
-			  "128": "pics/icon128.png"},
+	"icons": {"128": "pics/icon128.png"},
 	"background": {
 		"scripts": ["background.js"]
 	}

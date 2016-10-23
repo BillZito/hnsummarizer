@@ -1,19 +1,9 @@
 #hn-summarizer#
 
-##Contents##
-
-*/chrome: chrome extension
-
-*/helpers/utils.js: get and summarize articles
-
-*index.js: handle get requests to server
-
-*db.js: MongoDB/MongoLab set up
-
 
 ###About:###
  A chrome extension to provide context to HN articles by showing previews of articles underneath their links. 
- Download the extension: https://chrome.google.com/webstore/detail/hn-previewer/mndggbidneldegheeglhmplgocjkmlcl?hl=en
+ Download the extension: https://chrome.google.com/webstore/detail/mndggbidneldegheeglhmplgocjkmlcl/
 
 
 ###More:###
@@ -21,47 +11,35 @@ Calls Firebase API to get relevevant URL, uses node-sumuparticles to produce sum
 
 
 ###Example Usage: 
-*getTopList(); //Gets the top posts 
-
-*getOne(20); // Gets the 20th item's title and url in the list
-
-*getAllList(20, 30); //Recursively gets the 20th-29th item's titles and urls
-
-*parseText(77); //Gets the 77th item in the list
-
-*parseAll(85, 88); //Recursively gets the 85th, 86th, and 87th
-
-
-###Detailed Usage:###
-
-
-####Getting URLS:###
-
-*getTopList: calls Firebase api to get the list of the top posts
-
-*getOne: gets the best story at the given index and appends its title and url to the posts.txt file
-
-*getAllList: recursively calls getOne once the previous async call has been called, to retrieve the urls from all the top posts
-
-####Summarizing Content:###
-*summPromise: Use node-tldr summarizer to scrape/summarizer the content of webpages
-
-*parseText: Given index of one website, summarize its contents and add them to file
-
-*parseAll goes from lower (incl.) to higher range (excl), recursively parsing the next file once the previous one returns
+node update.js //gets 
+node index.js //connects to mongodb and listens on server
 
 
 ###Latest improvements: 
-*Chrome extension now redirects to YC homepage on click
+*Update.js scrapes Hackernews every 10 min (via heroku scheduler) to minimize load time for users
 
-*DB updated every 10 min with homepage to minimize load time for user
+*Key words and est. read time provided for some articles that cant be summarized
+
+*Clicking chrome extension icon (the p) now redirects to Hackernews
+
+*When on Hackernews, clicking toggles summaries off/on
 
 
 ###Next Tasks:
 *Fix timeouts of some requests
 
-*Add loading bar to show when summaries coming
+*Look into mobile and safari versions
 
-*Improve key terms for un-parseable texts
+*Unit test 80% code
 
-*Look into mobile and safari
+
+##Contents##
+*utils.js: get and summarize articles
+
+*index.js: handle get requests to server
+
+*update.js: background task running to scrape Hackernews every 10 min.
+
+*db.js: MongoDB/MongoLab set up
+
+*/chrome: chrome extension, making requests to server and adding to HN page

@@ -114,7 +114,7 @@ exports.getAllList = function(topItems, curr, end) {
 				})
 				.then((fullStory) => {
 					// miniPeek = fullStory.summary.slice(0, 10);
-					console.log('summary created', miniPeek);
+					// console.log('summary created', miniPeek);
 					return dbController.Post.create(fullStory);
 				})
 				.then((storyMade) => {
@@ -177,7 +177,7 @@ exports.parseText = function(storyObj) {
 
 				if (summary.topics.length > 0) {
 					var topTen = summary.topics.slice(0, 10);
-					summ = "Keywords: " + topTen.join(', ') + ". Words: " + summary.words + ". Est. minutes: " + summary.minutes + ".";
+					summ = "Keywords: " + topTen.join(', ') + ".   Wordcount: " + summary.words + ".   Read time: " + summary.minutes + " min.";
 
 				} else {
 					summ = "[No preview available]--But you should click the link!";
